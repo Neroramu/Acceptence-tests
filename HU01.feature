@@ -1,12 +1,17 @@
-Feature: Visualización y registro de información a los pacientes sobre sus enfermedades
+Feature: Selección de recordatorio de actividades médicas
 
-    Scenario: Registro de formulario para consulta con el médico
-        Given el paciente se encuentre en el formulario del registro
-        When ingrese todos los datos necesarios para el registro
-        Then la consulta se registra exitosamente
+    Scenario: Selección de recordatorio de administración de medicamentos
+        Given que el paciente se encuentra en el formulario para agregar un nuevo recordatorio.
+        When el paciente selecciona el tipo de recordatorio de administración de medicamentos.
+        Given el paciente es redirigido al formulario para agregar un nuevo recordatorio de medicamentos.
 
-    Scenario: Modificar o eliminar el registro de consulta
-        Given el paciente se encuentre en la visualización de consultas
-        When se encuentre en la opción de “Modificar” o “Eliminar” consultas
-            And seleccione la opción deseada por el paciente
-        Then se eliminará o modificará la consulta según la selección del paciente
+
+    Scenario: Selección de recordatorio de citas médicas
+        Given que el paciente se encuentra en el formulario para agregar un nuevo recordatorio.
+        When el paciente selecciona el tipo de recordatorio de citas médicas.
+        Then el paciente es redirigido al formulario para agregar un nuevo recordatorio de citas médicas.
+
+    Scenario: No selección de tipo de recordatorio
+        Given que el paciente se encuentra en el formulario para agregar un nuevo recordatorio.
+        When el paciente no selecciona un tipo de recordatorio.
+        Then el paciente es alertado con el mensaje "Debe seleccionar un tipo de recordatorio".

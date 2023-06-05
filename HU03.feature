@@ -1,14 +1,16 @@
-Feature: Visualización de notificaciones médico - paciente
+Feature: Visualización de la información de los recordatorios realizados
 
-    Scenario: Registro de notificaciones e instrucciones dadas por un médico
-        Given el paciente se encuentre en el menú de la aplicación
-        When selecciona la opción “centro de notificaciones”
-            And seleccione una opción de registro
-        Then se desplegará el formulario para registrar las notificaciones
-            And recibirlas en el momento especificado en la aplicación
+    Scenario: Visualización de recordatorios de medicamentos.
+        Given que el paciente ya registró sus medicamentos en el formulario del recordatorio.
+        When el paciente ingresa a sus recordatorios de medicamentos.
+        Then el paciente es redirigido al detallado de todos sus medicamentos y la frecuencia que debe tomarlos.
 
-    Scenario: Modificar o eliminar las instrucciones
-        Given el paciente se encuentre en la lista de instrucciones
-            And seleccione la instrucción deseada
-        When se encuentre en la opción de “Modificar” o “Eliminar” consultas
-        Then se realizará la acción seleccionada por el paciente
+    Scenario: Visualización de recordatorios de citas médicas
+        Given que el paciente ya registró sus citas médicas en el formulario del recordatorio.
+        When el paciente ingresa a sus recordatorios de citas médicas.
+        Then el paciente es redirigido al detallado de todas sus citas pendientes.
+
+    Scenario: No visualización de recordatorios de citas médicas/medicamentos.
+        Given que el paciente no registró sus citas médicas/medicamentos en el formulario del recordatorio.
+        When el paciente ingresa a sus recordatorios de citas médicas/medicamentos.
+        Then el paciente es alertado con el mensaje "Aún no ha registrado ningún recordatorio".
